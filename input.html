@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="myInputField" placeholder="Enter a valid value">
+<div id="errorText"></div>
+
+
+<script>
+    // Get the input field and error message element
+const inputField = document.getElementById('myInputField');
+const errorText = document.getElementById('errorText');
+
+// Add event listener for the blur event
+inputField.addEventListener('blur', validateInput);
+
+// Function to validate the input value
+function validateInput() {
+  const inputValue = inputField.value;
+
+  // Define a regular expression to match the desired pattern
+  const pattern = /^[a-zA-Z0-9]+$/;
+
+  // Check if the input value matches the pattern
+  if (pattern.test(inputValue)) {
+    // If the input is valid, clear the error message
+    errorText.textContent = '';
+  } else {
+    // If the input is invalid, display an error message
+    errorText.textContent = 'Invalid input. Only alphanumeric characters are allowed.';
+  }
+}
+
+</script>
+</body>
+</html>
